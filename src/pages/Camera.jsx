@@ -28,12 +28,16 @@ export default function Camera() {
   const [detections, setDetections] = useState([]);
   const [cart, setCart] = useState([]);
   const [darkMode, setDarkMode] = useState(true);
-  useEffect(() => {
-    startCamera();
-    loadModel();
-  }, []);
+   useEffect(() => {
+  startCamera();
 
-  // Start Camera
+  const load = async () => {
+    await loadModel();
+  };
+
+  load();
+}, []);
+// Start Camera
   async function startCamera() {
     try {
       const stream = await navigator.mediaDevices.getUserMedia({
