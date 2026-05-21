@@ -30,12 +30,9 @@ export default function Camera() {
   const [darkMode, setDarkMode] = useState(true);
    useEffect(() => {
   startCamera();
+  loadModel();
 
-  const load = async () => {
-    await loadModel();
-  };
-
-  load();
+  // eslint-disable-next-line
 }, []);
 // Start Camera
   async function startCamera() {
